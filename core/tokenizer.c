@@ -1,6 +1,6 @@
 #include "tokenizer.h"
 
-int tokenize(const char* s, TokenList* l){
+int tokenize(const char* s, StringList* l){
     for(; *s != '\0'; s++) {
         const char charValue = *s;
         if(IS_WHITESPACE(charValue)) {
@@ -9,7 +9,7 @@ int tokenize(const char* s, TokenList* l){
             char tmp[2];
             tmp[0] = charValue;
             tmp[1] = '\0';
-            token_list_append(l, tmp);
+            string_list_append(l, tmp);
             continue;
         } else if(IS_FACTORIAL(charValue)) {
             if(IS_FACTORIAL(*(s + 1))) {
@@ -26,14 +26,14 @@ int tokenize(const char* s, TokenList* l){
                 } while (IS_FACTORIAL(nextFactorialChar));
                 s--;
                 tmp[index] = '\0';
-                token_list_append(l, tmp);
+                string_list_append(l, tmp);
                 free(tmp);
                 continue;
             } else {
                 char tmp[2];
                 tmp[0] = charValue;
                 tmp[1] = '\0';
-                token_list_append(l, tmp);
+                string_list_append(l, tmp);
                 continue;
             }
         } else if (isdigit(charValue)){
@@ -66,7 +66,7 @@ int tokenize(const char* s, TokenList* l){
             } while (IS_DIGIT_OR_DOT(nextDigitTokenChar));
             s--;
             tmp[index] = '\0';
-            token_list_append(l, tmp);
+            string_list_append(l, tmp);
             free(tmp);
             continue;
         } else if (isalpha(*s)){
@@ -83,7 +83,7 @@ int tokenize(const char* s, TokenList* l){
             } while (isalnum(nextAlNumTokenChar));
             s--;
             tmp[index] = '\0';
-            token_list_append(l, tmp);
+            string_list_append(l, tmp);
             free(tmp);
             continue;
         } else{

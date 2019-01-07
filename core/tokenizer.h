@@ -1,6 +1,6 @@
 #pragma once
 
-#include "token_list.h"
+#include "string_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +24,6 @@
 #define IS_EXPONENT(c) (c == 'e' || c == 'E')
 #define IS_WHITESPACE(c) (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r')
 
-int tokenize(const char* s, TokenList* l);
+int tokenize(const char* s, StringList* l);
 
 void check_string_length_and_extend(char** str, size_t* size, int index);
