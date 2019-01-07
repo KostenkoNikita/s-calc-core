@@ -1,0 +1,11 @@
+{
+  "name": "node-calculator",
+  "version": "0.0.1",
+  "description": "Calculator based on postfix notation",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node main.js"
+  },
+  "author": "Nikita Kostenko",
+  "license": "MIT"
+}
