@@ -4,7 +4,8 @@
   "description": "Calculator based on postfix notation",
   "main": "main.js",
   "scripts": {
-    "dev": "node-gyp configure build --debug &&  node main.js"
+    "dev": "node-gyp configure build --debug &&  node main.js",
+    "test": "ts-node --project ./ && mocha -r ts-node/register tests/**/*.spec.ts"
   },
   "author": "Nikita Kostenko",
   "license": "MIT",
@@ -16,6 +17,12 @@
     "url": "https://github.com/KostenkoNikita/s-calc-core"
   },
   "devDependencies": {
-    "@types/node": "10.12.18"
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "10.12.18",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
   }
 }
