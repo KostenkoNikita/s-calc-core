@@ -1,6 +1,9 @@
 # node-gyp build files
 build/
 
+# typescript build directory
+dist/
+
 # native code src .idea
 core/.idea/
 
@@ -108,9 +111,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-
-# TypeScript v1 declaration files
-typings/
 
 # Optional npm cache directory
 .npm
