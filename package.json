@@ -4,7 +4,7 @@
   "description": "Calculator based on postfix notation",
   "main": "main.js",
   "scripts": {
-    "dev": "node-gyp configure build --debug && NODE_ENV=dev DEBUG=* node main.js"
+    "dev": "node-gyp configure build --debug &&  node main.js"
   },
   "author": "Nikita Kostenko",
   "license": "MIT",
@@ -12,8 +12,8 @@
     "nan": "2.12.1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/KostenkoNikita/s-calc-core"
+    "type": "git",
+    "url": "https://github.com/KostenkoNikita/s-calc-core"
   },
   "devDependencies": {
     "@types/node": "10.12.18"
