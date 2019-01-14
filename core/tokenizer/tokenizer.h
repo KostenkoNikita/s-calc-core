@@ -1,6 +1,6 @@
 #pragma once
 
-#include "string_list.h"
+#include "../common/string_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,3 +27,7 @@
 int tokenize(const char* s, StringList* l);
 
 void check_string_length_and_extend(char** str, size_t* size, int index);
+
+void process_factorial(const char** str_p, StringList* l);
+
+void process_alpha_char(const char** str_p, StringList *l);

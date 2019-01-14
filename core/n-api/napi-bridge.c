@@ -1,6 +1,6 @@
 #include <node_api.h>
-#include "tokenizer.h"
-#include "string_list.h"
+#include "../tokenizer/tokenizer.h"
+#include "../common/string_list.h"
 
 napi_value napiTokenize(napi_env env, napi_callback_info info) {
   napi_status status;

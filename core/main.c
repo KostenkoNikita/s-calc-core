@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "string_list.h"
-#include "tokenizer.h"
+#include "common/string_list.h"
+#include "tokenizer/tokenizer.h"
 
 int main() {
     /*SOURCE CODE FOR LOCAL DEBUG*/
