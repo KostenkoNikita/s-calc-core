@@ -3,6 +3,7 @@ build/
 
 # typescript build directory
 dist/
+binding/
 
 # native code src .idea
 core/.idea/

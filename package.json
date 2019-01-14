@@ -1,12 +1,12 @@
 {
-  "name": "node-calculator",
+  "name": "scalc-core",
   "version": "0.0.1",
   "description": "Calculator based on postfix notation",
-  "main": "main.js",
+  "main": "scalc/core.js",
+  "types": "@types/scalc/core/core.d.ts",
   "scripts": {
     "dev": "node-gyp configure build --debug &&  node main.js",
-    "test1": "mocha -r ts-node/register --files --project tsconfig.json -r tsconfig-paths/register **/*.spec.ts",
-    "test": "SET TS_NODE_PROJECT=./tsconfig.json&&mocha -r ts-node/register -r tsconfig-paths/register tests/**/*.spec.ts"
+    "test": "mocha -r ts-node/register **/*.spec.ts"
   },
   "author": "Nikita Kostenko",
   "license": "MIT",
