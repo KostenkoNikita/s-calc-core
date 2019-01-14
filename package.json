@@ -1,9 +1,9 @@
 {
-  "name": "scalc-core",
-  "version": "0.0.1",
+  "name": "@scalc/core",
+  "version": "0.0.4",
   "description": "Calculator based on postfix notation",
   "main": "scalc/core.js",
-  "types": "@types/scalc/core/core.d.ts",
+  "typings": "types/scalc/core/core.d.ts",
   "scripts": {
     "dev": "node-gyp configure build --debug &&  node main.js",
     "test": "mocha -r ts-node/register **/*.spec.ts"

@@ -2,6 +2,7 @@
   "targets": [
     {
       "target_name": "tokenizerModule",
+      'type': '<(library)',
       "sources": [
         "./core/napi-bridge.c",
         "./core/string_list.c",
