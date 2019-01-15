@@ -6,7 +6,10 @@
   "typings": "types/scalc/core/core.d.ts",
   "scripts": {
     "dev": "node-gyp configure build --debug &&  node main.js",
-    "test": "mocha -r ts-node/register **/*.spec.ts"
+    "test": "mocha -r ts-node/register **/*.spec.ts",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish"
   },
   "author": "Nikita Kostenko",
   "license": "MIT",
