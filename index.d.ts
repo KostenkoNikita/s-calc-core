@@ -18,7 +18,7 @@ declare namespace Core {
 
 declare const map: Core.Binding;
 
-declare module 'scalc/core' {
+declare module '@scalc/core' {
     export = map;
 }
 
