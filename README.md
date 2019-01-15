@@ -7,18 +7,16 @@ A small library executes mathematical expressions.
 
 ## Installation
 
-  Core js: 
-  `npm install scalc/core`
-  Types: 
+  Core install: 
   `npm install @scalc/core`
 
 ## Usage
     JS:
-    `var core = require('scalc/core');
+    `var core = require('@scalc/core');
     var formattedNum = core.napiTokenize('33+22*44');`
 
-        JS:
-    `import { napiTokenize } from 'scalc/core';
+    TS:
+    `import { napiTokenize } from '@scalc/core';
     let formattedNum = napiTokenize('33+22*44');`
   
   
