@@ -1,6 +1,6 @@
 {
   "name": "@scalc/core",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Calculator based on postfix notation",
   "main": "scalc/core.js",
   "typings": "types/scalc/core/core.d.ts",
