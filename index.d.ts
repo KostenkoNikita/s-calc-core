@@ -3,7 +3,6 @@
 // Definitions by: Tsyhankov Mykyta <https://github.com/vanmxpx>
 // TypeScript Version: 3.2.2
 
-
 declare namespace Core {
     interface Binding {
         /**
