@@ -3,9 +3,9 @@
     {
       "target_name": "tokenizerModule",
       "sources": [
-        "./core/napi-bridge.c",
-        "./core/string_list.c",
-        "./core/tokenizer.c"
+        "./core/n-api/napi-bridge.c",
+        "./core/common/string_list.c",
+        "./core/tokenizer/tokenizer.c"
       ],
       "cflags_cc": [
         "-std=c99",

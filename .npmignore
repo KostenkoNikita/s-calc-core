@@ -1,3 +1,13 @@
+# setups
+.vscode/
+binding.gyp
+tsconfig.json
+tslint.json
+
+# sources
+core/
+types/
+
 # node-gyp build files
 build/
 
