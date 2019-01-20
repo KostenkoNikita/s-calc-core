@@ -91,7 +91,7 @@ inline char* process_digit(const char** str_p, int* currStrIndex) {
     return tmp;
 }
 
-int tokenize(const char* s, StringList* l){
+SCalcCoreStatus tokenize(const char* s, StringList* l){
     for(int i = 0; ; i++) {
         const char charValue = *(s + i);
         if(charValue == '\0') {
@@ -121,8 +121,9 @@ int tokenize(const char* s, StringList* l){
             free(tmp);
             continue;
         } else{
-            return UNDEFINED_CHAR_ERR_CODE;
+            SCalcCoreStatus err = getSCalcInvalidTokenError("An error occurred while resolving token", i);
+            return err;
         }
     }
-    return SUCCESS_RETURN_CODE;
+    return getSCalcSuccessStatus("String has been successfully processed");
 }
