@@ -19,7 +19,7 @@ napi_value napiTokenize(napi_env env, napi_callback_info info) {
   }
   size_t inputStringLength = (size_t)tmp;
 
-  char* inputString = calloc((size_t)inputStringLength+1, sizeof(char));
+  char* inputString = (char*)calloc((size_t)inputStringLength+1, sizeof(char));
   size_t stringResultSize = 0;
   status = napi_get_value_string_utf8(env, argv[1], inputString, inputStringLength, &stringResultSize);
   if (status != napi_ok) {

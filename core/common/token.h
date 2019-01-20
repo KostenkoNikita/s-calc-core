@@ -21,14 +21,14 @@
 #define FACTORIAL_OPERATOR_PRIORITY 3
 #define EXP_OPERATOR_PRIORITY 3
 
-#define ERR_INVALID_TOKEN -1
-#define ERR_INVALID_OPERATOR -2
+#define TOKEN_INTERNAL_ERR_INVALID_TOKEN -1
+#define TOKEN_INTERNAL_ERR_INVALID_OPERATOR -2
 
 typedef struct {
     char* tokenString;
     int tokenType;
 } Token;
 
-Token createToken(const char* tokenStr, int tokenType);
+Token createToken(const char* tokenStr, int tokenType, int originalPosition);
 
 int getOperatorPriority(const Token* t);

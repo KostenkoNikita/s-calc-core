@@ -1,10 +1,11 @@
 #include "token.h"
 
-Token createToken(const char* tokenString, const int tokenType) {
+Token createToken(const char* tokenString, const int tokenType, const int originalPosition) {
     Token t;
     t.tokenType = tokenType;
     const size_t strLength = strlen(tokenString);
-    t.tokenString = calloc(strLength + 1, sizeof(char));
+    t.tokenString = (char*)calloc(strLength + 1, sizeof(char));
+    strcpy(t.tokenString, tokenString);
     return t;
 }
 
@@ -12,7 +13,7 @@ int getOperatorPriority(const Token* t) {
     const char* tokenString = t->tokenString;
     const size_t tokenStringLength = strlen(tokenString);
     if(tokenStringLength == 0) {
-        return ERR_INVALID_TOKEN;
+        return TOKEN_INTERNAL_ERR_INVALID_TOKEN;
     }
     if(tokenStringLength == 1) {
         const char c = tokenString[0];
@@ -32,7 +33,7 @@ int getOperatorPriority(const Token* t) {
             case '!':
                 return FACTORIAL_OPERATOR_PRIORITY;
             default:
-                return ERR_INVALID_OPERATOR;
+                return TOKEN_INTERNAL_ERR_INVALID_OPERATOR;
         }
     } else if(strcmp(tokenString, "mod") == 0) {
         return MODULO_OPERATOR_PRIORITY;
@@ -48,7 +49,7 @@ int getOperatorPriority(const Token* t) {
         if(isFactorial == true) {
             return FACTORIAL_OPERATOR_PRIORITY;
         } else {
-            return ERR_INVALID_OPERATOR;
+            return TOKEN_INTERNAL_ERR_INVALID_OPERATOR;
         }
     }
 }

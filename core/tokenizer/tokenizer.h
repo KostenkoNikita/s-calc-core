@@ -28,6 +28,8 @@ int tokenize(const char* s, StringList* l);
 
 void check_string_length_and_extend(char** str, size_t* size, int index);
 
-void process_factorial(const char** str_p, StringList* l);
+char* process_alpha_char(const char** str_p, int* currStrIndex);
 
-void process_alpha_char(const char** str_p, StringList *l);
+char* process_factorial(const char** str_p, int* currStrIndex);
+
+char* process_digit(const char** str_p, int* currStrIndex);

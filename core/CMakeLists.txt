@@ -3,18 +3,17 @@ project(core C)
 
 set(CMAKE_C_FLAGS "-std=c99")
 
-set(SOURCE_FILES main.c common/string_list.h common/string_list.c tokenizer/tokenizer.h tokenizer/tokenizer.c)
+set(COMMON_SOURCES common/string_list.c common/string_list.h common/token.c common/token.h)
+
+set(STATUS_SOURCES status/status.c status/status.h)
+
+set(TOKENIZER_SOURCES tokenizer/tokenizer.c tokenizer/tokenizer.h)
 
 set(NAPI_BRIDGE_SOURCES n-api/napi-bridge.c)
 
-if(UNIX)
+add_executable(${PROJECT_NAME} main.c ${COMMON_SOURCES} ${STATUS_SOURCES} ${TOKENIZER_SOURCES})
+
+if(UNIX AND NOT APPLE)
     include_directories(/usr/include/node)
-endif(UNIX)
-
-if (WIN32)
-    #include win32 node dir
-endif (WIN32)
-
-add_executable(${PROJECT_NAME} main.c common/string_list.h common/string_list.c tokenizer/tokenizer.h tokenizer/tokenizer.c common/token.h common/token.c)
-
-target_link_libraries(${PROJECT_NAME} /usr/include/node)
+    target_link_libraries(${PROJECT_NAME} /usr/include/node)
+endif(UNIX AND NOT APPLE)
