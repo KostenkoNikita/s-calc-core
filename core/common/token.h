@@ -23,12 +23,20 @@
 
 #define TOKEN_INTERNAL_ERR_INVALID_TOKEN -1
 #define TOKEN_INTERNAL_ERR_INVALID_OPERATOR -2
+#define TOKEN_INTERNAL_TOKEN_IS_NOT_AN_OPERATOR -3
 
 typedef struct {
     char* tokenString;
     int tokenType;
+    unsigned int originalPosition;
 } Token;
 
-Token createToken(const char* tokenStr, int tokenType, int originalPosition);
+Token createToken(const char* tokenString, int tokenType, unsigned int originalPosition);
 
-int getOperatorPriority(const Token* t);
+Token tokenDeepClone(const Token *tp);
+
+int getOperatorPriority(const Token* tp);
+
+char* tokenToString(const Token *tp);
+
+void freeToken(Token* tp);

@@ -1,16 +1,25 @@
 #include "token.h"
 
-Token createToken(const char* tokenString, const int tokenType, const int originalPosition) {
+Token createToken(const char* tokenString, const int tokenType, const unsigned int originalPosition) {
     Token t;
     t.tokenType = tokenType;
+    t.originalPosition = originalPosition;
     const size_t strLength = strlen(tokenString);
     t.tokenString = (char*)calloc(strLength + 1, sizeof(char));
     strcpy(t.tokenString, tokenString);
     return t;
 }
 
-int getOperatorPriority(const Token* t) {
-    const char* tokenString = t->tokenString;
+Token tokenDeepClone(const Token *tp) {
+    return createToken(tp->tokenString, tp->tokenType, tp->originalPosition);
+}
+
+int getOperatorPriority(const Token* tp) {
+    const int tokenType = tp->tokenType;
+    if(tokenType != TOKEN_LEFT_ASSOCIATIVE_OPERATOR && tokenType != TOKEN_RIGHT_ASSOCIATIVE_OPERATOR) {
+        return TOKEN_INTERNAL_TOKEN_IS_NOT_AN_OPERATOR;
+    }
+    const char* tokenString = tp->tokenString;
     const size_t tokenStringLength = strlen(tokenString);
     if(tokenStringLength == 0) {
         return TOKEN_INTERNAL_ERR_INVALID_TOKEN;
@@ -52,4 +61,16 @@ int getOperatorPriority(const Token* t) {
             return TOKEN_INTERNAL_ERR_INVALID_OPERATOR;
         }
     }
+}
+
+char* tokenToString(const Token *tp) {
+    const char* tokenString = tp->tokenString;
+    const size_t tokenStringLength = strlen(tokenString);
+    char* res = (char*)calloc(tokenStringLength+1, sizeof(char));
+    strcpy(res, tokenString);
+    return res;
+}
+
+void freeToken(Token* tp) {
+    free(tp->tokenString);
 }
