@@ -31,12 +31,10 @@ typedef struct {
     unsigned int originalPosition;
 } Token;
 
-Token createToken(const char* tokenString, int tokenType, unsigned int originalPosition);
+Token* createToken(const char* tokenString, int tokenType, unsigned int originalPosition);
 
-Token tokenDeepClone(const Token *tp);
+Token* tokenDeepClone(const Token *tp);
 
 int getOperatorPriority(const Token* tp);
-
-char* tokenToString(const Token *tp);
 
 void freeToken(Token* tp);

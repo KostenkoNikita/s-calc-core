@@ -1,16 +1,15 @@
 #include "token.h"
 
-Token createToken(const char* tokenString, const int tokenType, const unsigned int originalPosition) {
-    Token t;
-    t.tokenType = tokenType;
-    t.originalPosition = originalPosition;
-    const size_t strLength = strlen(tokenString);
-    t.tokenString = (char*)calloc(strLength + 1, sizeof(char));
-    strcpy(t.tokenString, tokenString);
+Token* createToken(const char* tokenString, const int tokenType, const unsigned int originalPosition) {
+    Token* t = (Token*)malloc(sizeof(Token));
+    t->tokenType = tokenType;
+    t->originalPosition = originalPosition;
+    t->tokenString = (char*)calloc(strlen(tokenString) + 1, sizeof(char));
+    strcpy(t->tokenString, tokenString);
     return t;
 }
 
-Token tokenDeepClone(const Token *tp) {
+Token* tokenDeepClone(const Token *tp) {
     return createToken(tp->tokenString, tp->tokenType, tp->originalPosition);
 }
 
@@ -63,14 +62,7 @@ int getOperatorPriority(const Token* tp) {
     }
 }
 
-char* tokenToString(const Token *tp) {
-    const char* tokenString = tp->tokenString;
-    const size_t tokenStringLength = strlen(tokenString);
-    char* res = (char*)calloc(tokenStringLength+1, sizeof(char));
-    strcpy(res, tokenString);
-    return res;
-}
-
 void freeToken(Token* tp) {
     free(tp->tokenString);
+    free(tp);
 }

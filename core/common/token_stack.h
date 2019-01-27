@@ -1,7 +1,6 @@
 #pragma once
 
 #include "token.h"
-#include "../status/status.h"
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,22 +12,20 @@
 typedef struct {
     int top;
     unsigned int capacity;
-    Token* data;
+    Token** data;
 } TokenStack;
 
 TokenStack* initTokenStack();
-
-bool isTokenStackFull(const TokenStack *sp);
 
 bool isTokenStackEmpty(const TokenStack *sp);
 
 void tokenStackPush(TokenStack *sp, Token* tp);
 
-Token tokenStackPop(TokenStack *sp);
+Token* tokenStackPop(TokenStack *sp);
 
 Token* tokenStackPeek(const TokenStack *sp);
 
-void tokenStackClear(const TokenStack *sp);
+void tokenStackClear(TokenStack *sp);
 
 void freeTokenStack(TokenStack* s);
 
