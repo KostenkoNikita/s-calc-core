@@ -1,6 +1,8 @@
 # node-gyp build files
 build/
 
+.vscode/
+
 # typescript build directory
 dist/
 binding/
