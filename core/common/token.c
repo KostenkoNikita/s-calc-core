@@ -62,6 +62,10 @@ int getOperatorPriority(const Token* tp) {
     }
 }
 
+bool isOperatorToken(const Token* tp) {
+    return  tp->tokenType == TOKEN_LEFT_ASSOCIATIVE_OPERATOR || tp->tokenType == TOKEN_RIGHT_ASSOCIATIVE_OPERATOR;
+}
+
 void freeToken(Token* tp) {
     free(tp->tokenString);
     free(tp);

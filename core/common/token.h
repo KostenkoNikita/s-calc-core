@@ -10,8 +10,8 @@
 #define TOKEN_SEPARATOR 3
 #define TOKEN_LEFT_ASSOCIATIVE_OPERATOR 4
 #define TOKEN_RIGHT_ASSOCIATIVE_OPERATOR 5
-#define TOKEN_LEFT_BRACKET 6
-#define TOKEN_RIGHT_BRACKET 7
+#define TOKEN_OPENING_BRACKET 6
+#define TOKEN_CLOSING_BRACKET 7
 
 #define PLUS_OPERATOR_PRIORITY 1
 #define MINUS_OPERATOR_PRIORITY 1
@@ -36,5 +36,7 @@ Token* createToken(const char* tokenString, int tokenType, unsigned int original
 Token* tokenDeepClone(const Token *tp);
 
 int getOperatorPriority(const Token* tp);
+
+bool isOperatorToken(const Token* tp);
 
 void freeToken(Token* tp);

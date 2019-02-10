@@ -7,7 +7,7 @@ set(COMMON_SOURCES common/string_list.c common/string_list.h common/token.c comm
 
 set(STATUS_SOURCES status/status.c status/status.h)
 
-set(TOKENIZER_SOURCES tokenizer/tokenizer.c tokenizer/tokenizer.h common/token_stack.h common/token_stack.c common/token_queue.h common/token_queue.c)
+set(TOKENIZER_SOURCES rpn_writer/rpn_writer.c rpn_writer/rpn_writer.h common/token_stack.h common/token_stack.c common/token_queue.h common/token_queue.c math/functions.h math/functions.c)
 
 set(NAPI_BRIDGE_SOURCES n-api/napi-bridge.c)
 
